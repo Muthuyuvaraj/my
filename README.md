@@ -18,7 +18,10 @@ npm run dev     # http://localhost:3000
 npm run build   # production build
 ```
 
-## Deploy (Vercel)
-Set `NEXT_PUBLIC_SITE_URL` to your real domain (see `.env.example`). It is used for the canonical URL, sitemap, robots.txt and the social share image.
+## Deploy (Netlify)
+The site is exported as static HTML (`output: "export"` in `next.config.ts`) into `out/`.
+`netlify.toml` tells Netlify to run `npm run build` and publish `out/` — no dashboard settings needed.
+
+`NEXT_PUBLIC_SITE_URL` (set in `netlify.toml`) is used for the canonical URL, sitemap, robots.txt and the social share image. Update it if you connect a custom domain.
 
 The old static site is kept in `legacy/` for reference.

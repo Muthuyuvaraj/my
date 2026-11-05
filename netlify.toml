@@ -1,0 +1,22 @@
+# Netlify build settings (these override whatever is set in the Netlify dashboard)
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Used for canonical URL, sitemap, robots.txt and social share image.
+  # Change this when you connect a custom domain.
+  NEXT_PUBLIC_SITE_URL = "https://muthuyuvarajm.netlify.app"
+
+# The social share image is exported without a file extension — tell browsers/crawlers it's a PNG
+[[headers]]
+  for = "/opengraph-image"
+  [headers.values]
+    Content-Type = "image/png"
+
+# Long-term caching for hashed build assets
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

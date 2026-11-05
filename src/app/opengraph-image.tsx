@@ -1,6 +1,9 @@
 import { ImageResponse } from "next/og";
 import { site } from "@/data/site";
 
+// Required for static export (output: "export")
+export const dynamic = "force-static";
+
 // Auto-generated social share image (fixes the missing og-preview.png from the old site)
 export const alt = site.title;
 export const size = { width: 1200, height: 630 };
